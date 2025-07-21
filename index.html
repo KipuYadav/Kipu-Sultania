@@ -6,48 +6,51 @@
   <title>Kipu Fitness Guide</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: white;
-      text-align: center;
-      padding: 30px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
       margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
     }
 
     .container {
-      max-width: 500px;
-      margin: auto;
-      background: rgba(0,0,0,0.3);
+      max-width: 700px;
+      margin: 50px auto;
       padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      color: #00fff0;
       margin-bottom: 10px;
     }
 
     .upi {
       font-size: 18px;
-      margin: 10px 0;
       background: #fff;
       color: #000;
-      padding: 8px;
+      padding: 10px;
       border-radius: 10px;
       display: inline-block;
+      margin: 10px 0;
     }
 
     button, input[type="password"] {
-      margin: 10px;
       padding: 12px;
-      font-size: 16px;
-      border-radius: 10px;
+      margin: 10px;
       border: none;
-    }
-
-    input[type="password"] {
-      width: 80%;
+      border-radius: 10px;
+      font-size: 16px;
     }
 
     .btn {
@@ -61,40 +64,55 @@
       background: #007b74;
     }
 
-    #guideSection {
-      display: none;
+    input[type="password"] {
+      width: 80%;
+    }
+
+    .instagram {
+      background: #e1306c;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      display: inline-block;
       margin-top: 20px;
+    }
+
+    #lockSection, #guideSection {
+      display: none;
       text-align: left;
-      background: rgba(255,255,255,0.1);
+      margin-top: 30px;
+      background: rgba(0, 0, 0, 0.2);
       padding: 20px;
       border-radius: 15px;
     }
 
-    .instagram {
+    h2 {
+      color: #ffd700;
       margin-top: 20px;
-      display: inline-block;
-      background: #e1306c;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
     }
 
     @media screen and (max-width: 600px) {
-      h1 { font-size: 2em; }
+      h1 { font-size: 2rem; }
       .container { padding: 20px; }
     }
   </style>
 </head>
-<body>
+<body onload="playVoice()">
+
   <div class="container">
     <h1>💪 Kipu Fitness Guide</h1>
-    <p>Step 1: Pay ₹99 to access the guide</p>
+    <p>Step 1: Pay ₹99 to unlock the guide</p>
     <div class="upi">📲 UPI ID: <b>Q259634761@ybl</b></div><br>
-    <button class="btn" onclick="showPassword()">✅ I Have Paid</button>
+    <button class="btn" onclick="showLock()">✅ I Have Paid</button>
 
-    <div id="passwordDiv" style="display:none;">
+    <div id="lockSection">
       <p>Step 2: Enter Password</p>
       <input type="password" id="passwordInput" placeholder="Enter Password"/>
       <button class="btn" onclick="checkPassword()">Unlock</button>
@@ -109,39 +127,49 @@
         <li>Jumping Jacks – 3 sets x 30 reps</li>
       </ul>
 
-      <h2>🏋️‍♂️ Gym Workout Plan</h2>
+      <h2>🏋️ Gym Workout Plan</h2>
       <ul>
-        <li>Chest: Bench Press, Incline Press</li>
-        <li>Back: Deadlifts, Lat Pulldown</li>
-        <li>Shoulders: Overhead Press</li>
-        <li>Arms: Bicep Curls, Tricep Pushdown</li>
-        <li>Legs: Squats, Leg Press</li>
+        <li>Monday: Chest + Triceps</li>
+        <li>Tuesday: Back + Biceps</li>
+        <li>Wednesday: Legs + Abs</li>
+        <li>Thursday: Shoulders + Traps</li>
+        <li>Friday: Full Body Circuit</li>
       </ul>
 
       <h2>🍎 Diet Plan</h2>
       <ul>
         <li>Morning: Oats + Banana + Almonds</li>
-        <li>Lunch: Brown rice + Paneer + Veggies</li>
-        <li>Evening: Peanut Butter Toast</li>
-        <li>Dinner: Salad + Soup or Eggs</li>
+        <li>Lunch: Brown Rice + Paneer + Veggies</li>
+        <li>Evening Snack: Peanut Butter Toast</li>
+        <li>Dinner: Boiled Eggs + Soup or Light Veg Meal</li>
       </ul>
     </div>
 
     <a class="instagram" href="https://instagram.com/kripalsultania" target="_blank">📷 Follow @kripalsultania</a>
   </div>
 
+  <!-- Voice Welcome Message -->
+  <audio id="voice" autoplay>
+    <source src="https://github.com/KipuYadav/Kipu-Fitness/raw/main/kipu-voice.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
-    function showPassword() {
-      document.getElementById("passwordDiv").style.display = "block";
+    function showLock() {
+      document.getElementById("lockSection").style.display = "block";
     }
 
     function checkPassword() {
-      const password = document.getElementById("passwordInput").value;
-      if (password === "FITWITHKIPU") {
+      const pass = document.getElementById("passwordInput").value;
+      if (pass === "FITWITHKIPU") {
         document.getElementById("guideSection").style.display = "block";
       } else {
         alert("❌ Wrong password! Try again.");
       }
+    }
+
+    function playVoice() {
+      document.getElementById("voice").play();
     }
   </script>
 </body>
