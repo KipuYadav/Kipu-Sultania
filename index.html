@@ -1,187 +1,153 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kipu Fitness Guide Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kipu Fitness Access</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f3f4f6;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
       margin: 0;
+      padding: 0;
     }
     .container {
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
-      background: white;
+      background: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
     }
-    h2 {
-      text-align: center;
-      color: #111827;
+    h1, h2 {
+      color: #2c3e50;
     }
     label {
+      font-weight: bold;
       display: block;
-      margin: 15px 0 5px;
-      color: #374151;
+      margin-top: 20px;
     }
-    input[type="text"], input[type="file"] {
-      width: 100%;
+    input, button {
       padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
+      margin-top: 5px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
     button {
-      margin-top: 20px;
-      padding: 10px;
-      width: 100%;
-      background-color: #10b981;
-      border: none;
+      background-color: #27ae60;
       color: white;
-      font-size: 16px;
-      border-radius: 8px;
+      font-weight: bold;
       cursor: pointer;
     }
     button:hover {
-      background-color: #059669;
+      background-color: #219150;
     }
     .hidden {
       display: none;
     }
-    .info {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .pdf-section, .whatsapp-section {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .error {
-      color: red;
-      text-align: center;
-      margin-top: 10px;
-    }
     .guide {
       margin-top: 40px;
     }
-    .guide h3 {
-      color: #1f2937;
-      margin-top: 20px;
+    .whatsapp {
+      margin-top: 30px;
+      text-align: center;
+      font-weight: bold;
     }
-    .guide p, .guide ul {
-      color: #374151;
-      line-height: 1.6;
+    img {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px 0;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>💪 KIPU FITNESS GUIDE ACCESS</h2>
-    <p style="text-align:center;">Pay ₹99 via UPI: <b>Q259634761@ybl</b></p><form action="https://formsubmit.co/kripalsultania@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
-  <label>Enter UPI Transaction ID:</label>
-  <input type="text" name="Transaction ID" required />
+    <h1>🔐 Kipu Fitness Guide Access</h1>
+    <p>To access the premium guide, please make a ₹99 payment to this UPI: <strong>Q259634761@ybl</strong></p>
 
-  <label>Upload Payment Screenshot:</label>
-  <input type="file" name="screenshot" accept="image/*" required />
+    <h2>Step 1: Upload Payment Proof</h2>
+    <label>Enter Transaction ID:</label>
+    <input type="text" id="txn" placeholder="e.g., TXN12345678" />
 
-  <input type="hidden" name="_subject" value="New KIPU Payment Submission!">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="box">
+    <label>Upload Screenshot:</label>
+    <input type="file" id="screenshot" accept="image/*" />
 
-  <button type="submit">Submit & Send Email</button>
-</form>
+    <button onclick="submitProof()">Submit Payment Proof</button>
 
-<div class="pdf-section">
-  <label>Enter Fixed Password:</label>
-  <input type="text" id="passwordInput" placeholder="Enter Password" />
-  <button onclick="unlockPDF()">Unlock PDF</button>
-  <p id="errorText" class="error"></p>
-  <div id="pdfDownload" class="hidden">
-    <a href="fitness-guide.pdf" download>
-      <button style="background-color:#3b82f6">📥 Download Fitness Guide PDF</button>
-    </a>
+    <div id="waiting" class="hidden">
+      <p>📩 Sending your proof to <strong>kripalsultania@gmail.com</strong>...</p>
+    </div>
+
+    <div id="approved" class="hidden">
+      <h2>✅ Payment Verified!</h2>
+      <p>Here is your password: <strong>FITWITHKIPU</strong></p>
+      <button onclick="unlockGuide()">Unlock Fitness Guide</button>
+    </div>
+
+    <div id="guide" class="guide hidden">
+      <h2>📘 KIPU FITNESS GUIDE</h2>
+
+      <h3>🏋️‍♂️ Gym Workout Plan (Weekly)</h3>
+      <ul>
+        <li><strong>Monday:</strong> Chest + Triceps <br><img src="https://www.bodybuilding.com/images/2021/march/chest-exercise-barbell-bench.jpg" /></li>
+        <li><strong>Tuesday:</strong> Back + Biceps <br><img src="https://www.bodybuilding.com/images/2021/march/back-exercise-lat-pulldown.jpg" /></li>
+        <li><strong>Wednesday:</strong> Legs + Abs <br><img src="https://www.bodybuilding.com/images/2021/march/leg-exercise-squat.jpg" /></li>
+        <li><strong>Thursday:</strong> Shoulders <br><img src="https://www.bodybuilding.com/images/2021/march/shoulder-exercise-overhead.jpg" /></li>
+        <li><strong>Friday:</strong> Full Body/Cardio</li>
+        <li><strong>Saturday-Sunday:</strong> Rest/Active Recovery</li>
+      </ul>
+
+      <h3>🏠 Home Workout Plan</h3>
+      <ul>
+        <li>Push-ups – 3 sets of 15</li>
+        <li>Squats – 3 sets of 20</li>
+        <li>Plank – 3 sets of 1 min</li>
+        <li>Burpees – 3 sets of 10</li>
+      </ul>
+
+      <h3>🍴 Weight Gain Diet Plan</h3>
+      <ul>
+        <li>Breakfast: Oats, banana, milk</li>
+        <li>Lunch: Rice, dal, paneer/chicken</li>
+        <li>Snacks: Dry fruits, peanut butter toast</li>
+        <li>Dinner: Roti, vegetables, curd</li>
+      </ul>
+
+      <h3>🥗 Weight Loss Diet Plan</h3>
+      <ul>
+        <li>Breakfast: Green tea, boiled eggs</li>
+        <li>Lunch: Salad, grilled chicken</li>
+        <li>Snacks: Fruits, almonds</li>
+        <li>Dinner: Soup, light roti sabzi</li>
+      </ul>
+    </div>
+
+    <div class="whatsapp">
+      <p>📞 For more information, contact us on WhatsApp:<br><strong>7015735598</strong></p>
+    </div>
   </div>
-</div>
 
-<div class="whatsapp-section">
-  <p><b>For more information:</b></p>
-  <a href="https://wa.me/917015735598" target="_blank">
-    <button style="background-color:#25D366">📞 Chat on WhatsApp</button>
-  </a>
-</div>
-
-<div class="guide">
-  <h3>🏋️‍♂️ KIPU FITNESS GUIDE</h3>
-  <p><b>By Kipu Yadav</b></p>
-
-  <h3>📌 Introduction</h3>
-  <p>This guide is designed to help you reach your fitness goals — whether you want to gain weight, lose weight, or simply build a healthier lifestyle.</p>
-
-  <h3>✅ Benefits of Fitness</h3>
-  <ul>
-    <li>Improves mental health</li>
-    <li>Builds strength and endurance</li>
-    <li>Boosts immunity</li>
-    <li>Enhances self-confidence</li>
-  </ul>
-
-  <h3>🍽️ Weight Gain Plan</h3>
-  <p><b>Diet Plan:</b></p>
-  <ul>
-    <li>Meal 1: Banana + Peanut Butter + Milk</li>
-    <li>Meal 2: Rice + Paneer/Chicken + Curd</li>
-    <li>Meal 3: Evening Snack – Nuts + Smoothie</li>
-    <li>Meal 4: Dinner – Roti + Dal + Veggies</li>
-  </ul>
-
-  <h3>🔥 Weight Loss Plan</h3>
-  <p><b>Diet Plan:</b></p>
-  <ul>
-    <li>Meal 1: Warm Lemon Water + Oats</li>
-    <li>Meal 2: Boiled Eggs + Fruits</li>
-    <li>Meal 3: Brown Rice + Veggies</li>
-    <li>Meal 4: Light Dinner – Soup + Salad</li>
-  </ul>
-
-  <h3>🏠 Home Workout Plan</h3>
-  <ul>
-    <li>Monday: Push-ups, Squats, Crunches</li>
-    <li>Tuesday: Plank, Lunges, Jumping Jacks</li>
-    <li>Wednesday: Rest</li>
-    <li>Thursday: Mountain Climbers, Burpees</li>
-    <li>Friday: Push-ups, Leg Raises</li>
-    <li>Saturday: Yoga & Stretching</li>
-    <li>Sunday: Rest</li>
-  </ul>
-
-  <h3>🏋️ Gym Workout Plan</h3>
-  <ul>
-    <li>Monday: Chest + Triceps</li>
-    <li>Tuesday: Back + Biceps</li>
-    <li>Wednesday: Legs</li>
-    <li>Thursday: Shoulders + Abs</li>
-    <li>Friday: Cardio + Core</li>
-    <li>Saturday: Full Body</li>
-    <li>Sunday: Rest</li>
-  </ul>
-</div>
-
-  </div>  <script>
-    function unlockPDF() {
-      const input = document.getElementById("passwordInput").value.trim();
-      const correctPassword = "FITWITHKIPU";
-      const guide = document.getElementById("pdfDownload");
-      const error = document.getElementById("errorText");
-
-      if (input === correctPassword) {
-        guide.classList.remove("hidden");
-        error.textContent = "";
-      } else {
-        error.textContent = "❌ Wrong password. Please try again.";
-        guide.classList.add("hidden");
+  <script>
+    function submitProof() {
+      const txn = document.getElementById('txn').value;
+      const file = document.getElementById('screenshot').files[0];
+      if (!txn || !file) {
+        alert('Please enter transaction ID and upload screenshot.');
+        return;
       }
+      document.getElementById('waiting').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('waiting').classList.add('hidden');
+        document.getElementById('approved').classList.remove('hidden');
+      }, 3000); // Simulate email verification delay
     }
-  </script></body>
+
+    function unlockGuide() {
+      document.getElementById('guide').classList.remove('hidden');
+    }
+  </script>
+</body>
 </html>
