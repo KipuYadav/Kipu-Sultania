@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,254 +6,177 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f2f2f2;
+      background: linear-gradient(to right, #232526, #414345);
+      color: #fff;
       margin: 0;
       padding: 0;
-    }
-    .lock-screen, .main-content {
-      display: none;
-      padding: 30px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .lock-screen.active, .main-content.active {
-      display: block;
-    }
-    .lock-box {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-    input[type="password"] {
-      padding: 10px;
-      width: 70%;
-      margin: 15px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-    button {
-      padding: 10px 20px;
-      background: #0c6dfd;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    h1, h2 {
-      color: #0c6dfd;
-    }
-    .section {
-      background: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
-    blockquote {
-      font-style: italic;
-      color: #555;
-      border-left: 4px solid #ccc;
-      padding-left: 10px;
-      margin: 10px 0;
-    }
-    .bottom-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
-    }
-    .bottom-buttons a {
-      padding: 10px 20px;
-      background: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .bottom-buttons a.insta {
-      background: #E1306C;
-    }
-    @media screen and (max-width: 600px) {
-      input[type="password"] {
-        width: 100%;
-      }
-    }
+      transition: background 0.5s, color 0.5s;
+    }.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-box, .btn {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.input-box {
+  width: 200px;
+}
+
+.btn {
+  background: #00c6ff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #0072ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+.toggle-dark {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: #444;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.footer-btns {
+  margin-top: 30px;
+}
+
+a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
+  <div class="toggle-dark" onclick="toggleDark()">🌙 Toggle Dark</div>
+  <div class="container">
+    <h1>Welcome to Kipu Fitness</h1>
+    <p>Enter Password to Unlock Fitness Guide</p>
+    <input type="password" id="password" class="input-box" placeholder="Enter Password"/>
+    <button onclick="checkPassword()" class="btn">Unlock</button>
+    <button onclick="showHint()" class="btn" style="background:#444;">🔍 Show Hint</button><div id="lockedContent" class="glass hidden">
+  <h2>🏋️ Home Workout Plan</h2>
+  <ul>
+    <li>Push-ups – 3 sets of 15</li>
+    <li>Squats – 3 sets of 20</li>
+    <li>Plank – 3 sets of 1 min</li>
+    <li>Jumping Jacks – 3 sets of 30 sec</li>
+  </ul>
 
-  <!-- 🔒 LOCK SCREEN -->
-  <div class="lock-screen active">
-    <div class="lock-box">
-      <h2>🔐 Access Locked</h2>
-      <p>Pay ₹99 via UPI to unlock the Kipu Fitness Guide</p>
-      <p><strong>UPI ID:</strong> Q259634761@ybl</p>
-      <p>After payment, enter the password below:</p>
-      <input type="password" id="passwordInput" placeholder="Enter Password">
-      <br>
-      <button onclick="checkPassword()">Unlock</button>
-      <p id="error" style="color: red;"></p>
-    </div>
+  <h2>🏋️‍♂️ Gym Workout Plan</h2>
+  <ul>
+    <li>Monday: Chest & Triceps</li>
+    <li>Tuesday: Back & Biceps</li>
+    <li>Wednesday: Legs</li>
+    <li>Thursday: Shoulders</li>
+    <li>Friday: Cardio + Abs</li>
+  </ul>
+
+  <h2>🍎 Weight Gain Diet Plan</h2>
+  <ul>
+    <li>Breakfast: Oats + Banana + Peanut Butter</li>
+    <li>Lunch: Rice + Paneer/Chicken + Salad</li>
+    <li>Snacks: Nuts + Milkshake</li>
+    <li>Dinner: Roti + Dal + Veggies</li>
+  </ul>
+
+  <h2>🥗 Weight Loss Diet Plan</h2>
+  <ul>
+    <li>Breakfast: Green Tea + Oats</li>
+    <li>Lunch: Brown Rice + Veggies</li>
+    <li>Snacks: Fruits or Boiled Eggs</li>
+    <li>Dinner: Salad + Soup</li>
+  </ul>
+
+  <div class="footer-btns">
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn">💬 WhatsApp Support</a>
+    <a href="https://instagram.com/kripalsultania" class="btn">📸 Follow on Instagram</a>
   </div>
+</div>
 
-  <!-- 🏋️ MAIN CONTENT -->
-  <div class="main-content" id="guide">
-    <h1>🏋️‍♂️ KIPU FITNESS GUIDE BOOK</h1>
-    <p><strong>By Kipu Yadav</strong></p>
-
-    <div class="section">
-      <h2>📚 Table of Contents</h2>
-      <ul>
-        <li>1. Introduction</li>
-        <li>2. Benefits of Fitness</li>
-        <li>3. Weight Gain Plan</li>
-        <li>4. Weight Loss Plan</li>
-        <li>5. 🏠 Home Workouts</li>
-        <li>6. 🏋️ Gym Workouts</li>
-        <li>7. Diet Plans</li>
-        <li>8. Tips & Tricks</li>
-        <li>9. Motivation Boost</li>
-        <li>10. Contact & Support</li>
-      </ul>
-    </div>
-
-    <div class="section"><h2>1️⃣ Introduction</h2><p>Welcome to Kipu Fitness – your personal path to a better body and a stronger mind.</p></div>
-
-    <div class="section">
-      <h2>2️⃣ Benefits of Fitness</h2>
-      <ul>
-        <li>✅ Boosts confidence</li>
-        <li>✅ Controls weight</li>
-        <li>✅ Improves strength & stamina</li>
-        <li>✅ Reduces stress</li>
-        <li>✅ Builds discipline</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>3️⃣ Weight Gain Plan</h2>
-      <h3>🧑‍🍳 Diet Tips:</h3>
-      <ul>
-        <li>High-protein meals</li>
-        <li>Eat every 2-3 hours</li>
-        <li>Add peanut butter, paneer, banana, milk</li>
-      </ul>
-      <h3>💪 Sample Day:</h3>
-      <ul>
-        <li>Breakfast: Oats + Banana + Peanut Butter</li>
-        <li>Lunch: Rice + Dal + Paneer</li>
-        <li>Snacks: Dry Fruits + Banana Shake</li>
-        <li>Dinner: Roti + Veggies + Curd</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>4️⃣ Weight Loss Plan</h2>
-      <h3>🥗 Diet Tips:</h3>
-      <ul>
-        <li>Avoid sugar & junk food</li>
-        <li>High-fiber veggies</li>
-        <li>Hydration is key</li>
-      </ul>
-      <h3>💪 Sample Day:</h3>
-      <ul>
-        <li>Breakfast: Sprouts + Boiled Egg</li>
-        <li>Lunch: Brown Rice + Veggies</li>
-        <li>Snacks: Green Tea + Fruits</li>
-        <li>Dinner: Light Soup + Salad</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>5️⃣ 🏠 Home Workout Plan</h2>
-      <table>
-        <tr><th>Day</th><th>Workout</th></tr>
-        <tr><td>1</td><td>Jumping Jacks – 3x30, Pushups – 3x10</td></tr>
-        <tr><td>2</td><td>Squats – 3x15, Plank – 3x30 sec</td></tr>
-        <tr><td>3</td><td>Rest or Stretch</td></tr>
-        <tr><td>4</td><td>Mountain Climbers – 3x20, Lunges – 3x10 each</td></tr>
-        <tr><td>5</td><td>High Knees – 3x30 sec, Sit-ups – 3x15</td></tr>
-        <tr><td>6</td><td>Full Body Flow Yoga – 20 mins</td></tr>
-        <tr><td>7</td><td>Rest</td></tr>
-      </table>
-    </div>
-
-    <div class="section">
-      <h2>6️⃣ 🏋️ Gym Workout Plan</h2>
-      <table>
-        <tr><th>Day</th><th>Focus</th><th>Exercises</th></tr>
-        <tr><td>1</td><td>Chest</td><td>Bench Press, Incline DB Press, Push-ups</td></tr>
-        <tr><td>2</td><td>Back</td><td>Lat Pulldown, Deadlifts, Seated Rows</td></tr>
-        <tr><td>3</td><td>Shoulders</td><td>Overhead Press, Lateral Raise, Shrugs</td></tr>
-        <tr><td>4</td><td>Legs</td><td>Squats, Leg Press, Calf Raises</td></tr>
-        <tr><td>5</td><td>Arms</td><td>Bicep Curls, Tricep Pushdowns, Hammer Curls</td></tr>
-        <tr><td>6</td><td>Core + Cardio</td><td>Plank, Leg Raises, Treadmill – 20 min</td></tr>
-        <tr><td>7</td><td>Rest</td><td></td></tr>
-      </table>
-    </div>
-
-    <div class="section">
-      <h2>7️⃣ Diet Plans</h2>
-      <p>Download the exclusive diet PDF:</p>
-      <a href="fitness-diet-plan.pdf" download>📥 Download Diet Plan PDF</a>
-    </div>
-
-    <div class="section">
-      <h2>8️⃣ Tips & Tricks</h2>
-      <ul>
-        <li>✅ Sleep 7-8 hrs daily</li>
-        <li>✅ Stay hydrated (3–4 L water)</li>
-        <li>✅ Be consistent – no magic pill!</li>
-        <li>✅ Track your progress weekly</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>9️⃣ Motivation Boost</h2>
-      <blockquote>“Fitness is not about being better than someone else. It’s about being better than you used to be.” – Kipu 💪</blockquote>
-    </div>
-
-    <div class="section">
-      <h2>🔟 Contact & Support</h2>
-      <p>📧 Email: kripalsultania@gmail.com<br>
-         📲 Instagram DM: <a href="https://instagram.com/kripalsultania" target="_blank">@kripalsultania</a></p>
-    </div>
-
-    <div class="bottom-buttons">
-      <a href="fitness-diet-plan.pdf" download>📥 Download PDF</a>
-      <a class="insta" href="https://instagram.com/kripalsultania" target="_blank">📸 Instagram</a>
-    </div>
-  </div>
-
-  <!-- JS to handle password -->
-  <script>
+  </div>  <script>
+    let attempts = 0;
     function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      if (input === "FITWITHKIPU") {
-        document.querySelector(".lock-screen").classList.remove("active");
-        document.getElementById("guide").classList.add("active");
+      const pass = document.getElementById("password").value;
+      if (pass === "FITWITHKIPU") {
+        document.getElementById("lockedContent").classList.remove("hidden");
+        document.getElementById("lockedContent").classList.add("fade-in");
+        speak("Welcome to Kipu Fitness Guide!");
       } else {
-        document.getElementById("error").innerText = "❌ Wrong password. Try again.";
+        attempts++;
+        alert("Incorrect Password ❌");
+        if (attempts >= 3) {
+          alert("Too many wrong attempts. Please refresh.");
+          document.getElementById("password").disabled = true;
+        }
       }
     }
-  </script>
-</body>
+
+    function showHint() {
+      alert("Hint: FITWITHKIPU");
+    }
+
+    function toggleDark() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function speak(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(msg);
+    }
+  </script></body>
 </html>
