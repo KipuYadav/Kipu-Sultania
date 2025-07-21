@@ -11,14 +11,14 @@
       margin: 0;
     }
     .container {
-      max-width: 800px;
+      max-width: 600px;
       margin: auto;
       background: white;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-    h2, h3 {
+    h2 {
       text-align: center;
       color: #111827;
     }
@@ -54,7 +54,7 @@
       margin-top: 20px;
       text-align: center;
     }
-    .pdf-section, .whatsapp-section, .guide-section {
+    .pdf-section, .whatsapp-section {
       margin-top: 30px;
       text-align: center;
     }
@@ -63,15 +63,16 @@
       text-align: center;
       margin-top: 10px;
     }
-    .guide-section {
-      display: none;
-      text-align: left;
+    .guide {
+      margin-top: 40px;
     }
-    .guide-section.visible {
-      display: block;
+    .guide h3 {
+      color: #1f2937;
+      margin-top: 20px;
     }
-    ul {
-      line-height: 1.8;
+    .guide p, .guide ul {
+      color: #374151;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -93,76 +94,15 @@
 </form>
 
 <div class="pdf-section">
-  <label>Enter Password (auto-changes every minute):</label>
+  <label>Enter Fixed Password:</label>
   <input type="text" id="passwordInput" placeholder="Enter Password" />
-  <button onclick="unlockPDF()">Unlock Guide</button>
+  <button onclick="unlockPDF()">Unlock PDF</button>
   <p id="errorText" class="error"></p>
   <div id="pdfDownload" class="hidden">
-    <button style="background-color:#3b82f6" onclick="showGuide()">📖 View Fitness Guide</button>
+    <a href="fitness-guide.pdf" download>
+      <button style="background-color:#3b82f6">📥 Download Fitness Guide PDF</button>
+    </a>
   </div>
-</div>
-
-<div class="guide-section" id="fitnessGuide">
-  <h3>🏋️‍♂️ KIPU FITNESS GUIDE BOOK</h3>
-  <p><strong>By Kipu Yadav</strong></p>
-
-  <h4>📚 Table of Contents</h4>
-  <ul>
-    <li>1. Introduction</li>
-    <li>2. Benefits of Fitness</li>
-    <li>3. Weight Gain Plan</li>
-    <li>4. Weight Loss Plan</li>
-    <li>5. Home Workouts</li>
-    <li>6. Gym Workouts (Weekly Plan)</li>
-    <li>7. Diet Plans</li>
-  </ul>
-
-  <h4>1. Introduction</h4>
-  <p>Welcome to KIPU FITNESS! This guide is designed to help you gain or lose weight effectively using home workouts, gym routines, and optimized diet plans.</p>
-
-  <h4>2. Benefits of Fitness</h4>
-  <ul>
-    <li>Improves overall health</li>
-    <li>Increases energy and stamina</li>
-    <li>Boosts mental health</li>
-    <li>Improves self-confidence</li>
-  </ul>
-
-  <h4>3. Weight Gain Plan</h4>
-  <ul>
-    <li>Eat calorie surplus meals</li>
-    <li>Focus on protein-rich diet: paneer, eggs, chicken</li>
-    <li>Strength training 4–5 days/week</li>
-    <li>Drink whole milk, peanut butter, bananas</li>
-  </ul>
-
-  <h4>4. Weight Loss Plan</h4>
-  <ul>
-    <li>Follow calorie deficit diet</li>
-    <li>Do cardio 30–45 mins/day</li>
-    <li>Use low-carb, high-protein meals</li>
-    <li>Hydrate, sleep well</li>
-  </ul>
-
-  <h4>5. 🏠 Home Workouts</h4>
-  <ul>
-    <li>Push-ups – 3x15</li>
-    <li>Squats – 3x20</li>
-    <li>Plank – 3x1min</li>
-    <li>Lunges – 3x15</li>
-  </ul>
-
-  <h4>6. 🏋️ Gym Workouts</h4>
-  <p><strong>Day 1:</strong> Chest + Triceps<br>Bench Press, Dumbbell Flys, Dips<br>
-  <strong>Day 2:</strong> Back + Biceps<br>Pull-Ups, Rows, Barbell Curl<br>
-  <strong>Day 3:</strong> Shoulders<br>Military Press, Lateral Raises<br>
-  <strong>Day 4:</strong> Legs<br>Squats, Leg Press, Calf Raises<br>
-  <strong>Day 5:</strong> Core + Cardio<br>Planks, Russian Twists, Running</p>
-
-  <h4>7. 🥗 Diet Plans</h4>
-  <p><strong>For Weight Gain:</strong><br>Breakfast: Eggs + Banana Shake<br>Lunch: Rice + Chicken/Paneer<br>Dinner: Dal + Roti + Ghee</p>
-
-  <p><strong>For Weight Loss:</strong><br>Breakfast: Oats + Green Tea<br>Lunch: Salad + Grilled Paneer<br>Dinner: Soup + 1 Roti</p>
 </div>
 
 <div class="whatsapp-section">
@@ -172,16 +112,66 @@
   </a>
 </div>
 
-  </div>  <script>
-    function generatePassword() {
-      const now = new Date();
-      const minutes = now.getUTCMinutes();
-      return 'KIPU' + (minutes < 10 ? '0' + minutes : minutes);
-    }
+<div class="guide">
+  <h3>🏋️‍♂️ KIPU FITNESS GUIDE</h3>
+  <p><b>By Kipu Yadav</b></p>
 
+  <h3>📌 Introduction</h3>
+  <p>This guide is designed to help you reach your fitness goals — whether you want to gain weight, lose weight, or simply build a healthier lifestyle.</p>
+
+  <h3>✅ Benefits of Fitness</h3>
+  <ul>
+    <li>Improves mental health</li>
+    <li>Builds strength and endurance</li>
+    <li>Boosts immunity</li>
+    <li>Enhances self-confidence</li>
+  </ul>
+
+  <h3>🍽️ Weight Gain Plan</h3>
+  <p><b>Diet Plan:</b></p>
+  <ul>
+    <li>Meal 1: Banana + Peanut Butter + Milk</li>
+    <li>Meal 2: Rice + Paneer/Chicken + Curd</li>
+    <li>Meal 3: Evening Snack – Nuts + Smoothie</li>
+    <li>Meal 4: Dinner – Roti + Dal + Veggies</li>
+  </ul>
+
+  <h3>🔥 Weight Loss Plan</h3>
+  <p><b>Diet Plan:</b></p>
+  <ul>
+    <li>Meal 1: Warm Lemon Water + Oats</li>
+    <li>Meal 2: Boiled Eggs + Fruits</li>
+    <li>Meal 3: Brown Rice + Veggies</li>
+    <li>Meal 4: Light Dinner – Soup + Salad</li>
+  </ul>
+
+  <h3>🏠 Home Workout Plan</h3>
+  <ul>
+    <li>Monday: Push-ups, Squats, Crunches</li>
+    <li>Tuesday: Plank, Lunges, Jumping Jacks</li>
+    <li>Wednesday: Rest</li>
+    <li>Thursday: Mountain Climbers, Burpees</li>
+    <li>Friday: Push-ups, Leg Raises</li>
+    <li>Saturday: Yoga & Stretching</li>
+    <li>Sunday: Rest</li>
+  </ul>
+
+  <h3>🏋️ Gym Workout Plan</h3>
+  <ul>
+    <li>Monday: Chest + Triceps</li>
+    <li>Tuesday: Back + Biceps</li>
+    <li>Wednesday: Legs</li>
+    <li>Thursday: Shoulders + Abs</li>
+    <li>Friday: Cardio + Core</li>
+    <li>Saturday: Full Body</li>
+    <li>Sunday: Rest</li>
+  </ul>
+</div>
+
+  </div>  <script>
     function unlockPDF() {
       const input = document.getElementById("passwordInput").value.trim();
-      const correctPassword = generatePassword();
+      const correctPassword = "FITWITHKIPU";
       const guide = document.getElementById("pdfDownload");
       const error = document.getElementById("errorText");
 
@@ -192,10 +182,6 @@
         error.textContent = "❌ Wrong password. Please try again.";
         guide.classList.add("hidden");
       }
-    }
-
-    function showGuide() {
-      document.getElementById("fitnessGuide").classList.add("visible");
     }
   </script></body>
 </html>
