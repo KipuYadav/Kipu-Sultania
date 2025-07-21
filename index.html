@@ -1,169 +1,159 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kipu Fitness Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIPU FITNESS GUIDE BOOK</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #141e30, #243b55);
       margin: 0;
-      padding: 0;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #000, #444);
       color: #fff;
+      padding: 1.5rem;
       text-align: center;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      animation: fadeIn 1.5s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     h1, h2 {
-      color: #00fff0;
+      color: #222;
     }
-    .upi, .btn, input[type="password"] {
-      padding: 10px;
-      margin: 10px;
-      border-radius: 10px;
-      font-size: 16px;
-    }
-    .upi {
+    section {
+      padding: 2rem;
       background: #fff;
-      color: #000;
-      display: inline-block;
-    }
-    .btn {
-      background: #00c9a7;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #007b74;
-    }
-    input[type="password"] {
-      border: none;
-      width: 80%;
-    }
-    .instagram {
-      background: #e1306c;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    #lockSection, #guideSection {
-      display: none;
-      text-align: left;
-      margin-top: 30px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      border-radius: 15px;
-    }
-    ul {
-      padding-left: 20px;
-      list-style: square;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .logo {
-      font-size: 36px;
+      font-size: 2rem;
       font-weight: bold;
-      color: #ffd700;
-      margin-bottom: 20px;
-      animation: pop 1s ease-in-out;
     }
-    @keyframes pop {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .voice {
+      display: none;
     }
-    @media screen and (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .container { padding: 20px; }
+    .insta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .insta a {
+      background: #e1306c;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
     }
   </style>
 </head>
-<body onload="playVoice()">
-  <div class="container">
-    <div class="logo">🏋️‍♂️ KIPU FITNESS</div>
-    <h1>🔥 Unlock Your Ultimate Body</h1>
-    <p>Step 1: Pay ₹99 to unlock the guide</p>
-    <div class="upi">📲 UPI ID: <b>Q259634761@ybl</b></div><br>
-    <button class="btn" onclick="showLock()">✅ I Have Paid</button><div id="lockSection">
-  <p>Step 2: Enter Password</p>
-  <input type="password" id="passwordInput" placeholder="Enter Password"/>
-  <button class="btn" onclick="checkPassword()">Unlock</button>
-</div>
-
-<div id="guideSection">
-  <h2>🏠 Home Workout (7 Days)</h2>
-  <ul>
-    <li><b>Day 1:</b> Jumping Jacks, Push-ups, Squats, Plank</li>
-    <li><b>Day 2:</b> Arm Circles, Wall Push-ups, Lunges, Crunches</li>
-    <li><b>Day 3:</b> High Knees, Tricep Dips, Glute Bridge, Side Plank</li>
-    <li><b>Day 4:</b> Stretch & Recovery</li>
-    <li><b>Day 5:</b> Full Body HIIT (20 mins)</li>
-    <li><b>Day 6:</b> Abs Focused: Leg Raises, Plank, Russian Twist</li>
-    <li><b>Day 7:</b> Rest</li>
-  </ul>
-
-  <h2>🏋️ Gym Workout (Weekly Plan)</h2>
-  <ul>
-    <li><b>Monday:</b> Chest & Triceps (Bench Press, Incline DB Press, Dips)</li>
-    <li><b>Tuesday:</b> Back & Biceps (Deadlift, Lat Pulldown, Barbell Curl)</li>
-    <li><b>Wednesday:</b> Legs (Squats, Leg Press, Calf Raises)</li>
-    <li><b>Thursday:</b> Shoulders (Overhead Press, Lateral Raises)</li>
-    <li><b>Friday:</b> Arms (Bicep Curl, Tricep Rope Pushdown)</li>
-    <li><b>Saturday:</b> Core (Crunches, Leg Raise, Hanging Knee Raise)</li>
-    <li><b>Sunday:</b> Rest</li>
-  </ul>
-
-  <h2>🍎 Diet Plan – Weight Gain</h2>
-  <ul>
-    <li><b>Morning:</b> Banana shake + Peanut butter toast</li>
-    <li><b>Mid-Morning:</b> Boiled Eggs + Almonds</li>
-    <li><b>Lunch:</b> Rice + Paneer/Chicken + Dal + Veggies</li>
-    <li><b>Evening Snack:</b> Protein Bar or Milk + Nuts</li>
-    <li><b>Dinner:</b> Roti + Sabzi + Curd + Milk before bed</li>
-  </ul>
-
-  <h2>🥗 Diet Plan – Weight Loss</h2>
-  <ul>
-    <li><b>Morning:</b> Green Tea + Boiled Egg</li>
-    <li><b>Mid-Morning:</b> Apple or Papaya</li>
-    <li><b>Lunch:</b> Brown Rice + Grilled Chicken/Veg + Salad</li>
-    <li><b>Evening Snack:</b> Roasted Makhana or Fruits</li>
-    <li><b>Dinner:</b> Veg Soup + Cucumber + Paneer/Besan Chilla</li>
-  </ul>
-</div>
-
-<a class="instagram" href="https://instagram.com/kripalsultania" target="_blank">📷 Follow @kripalsultania</a>
-
-  </div>  <audio id="voice" autoplay>
-    <source src="https://github.com/KipuYadav/Kipu-Fitness/raw/main/kipu-voice.mp3" type="audio/mpeg">
-  </audio>  <script>
-    function showLock() {
-      document.getElementById("lockSection").style.display = "block";
-    }
-    function checkPassword() {
-      const pass = document.getElementById("passwordInput").value;
-      if (pass === "FITWITHKIPU") {
-        document.getElementById("guideSection").style.display = "block";
-      } else {
-        alert("❌ Wrong password! Try again.");
-      }
-    }
-    function playVoice() {
-      document.getElementById("voice").play();
-    }
-  </script></body>
+<body>
+  <header>
+    <div class="logo">🏋️‍♂️ KIPU FITNESS GUIDE BOOK</div>
+    <p>By Kipu Yadav</p>
+  </header>  <section>
+    <h2>🔐 Note:</h2>
+    <p>Ye guide sirf un logo ke liye available hai jinhone ₹99 payment kiya hai via UPI: <strong>Q259634761@ybl</strong>.</p>
+  </section>  <section>
+    <h2>📚 Table of Contents</h2>
+    <ol>
+      <li>Introduction</li>
+      <li>Benefits of Fitness</li>
+      <li>Weight Gain Plan</li>
+      <li>Weight Loss Plan</li>
+      <li>🏠 Home Workouts</li>
+      <li>🏋️ Gym Workouts</li>
+      <li>Diet Plans (Gain & Loss)</li>
+      <li>Tips & Tricks</li>
+      <li>Motivation Boost</li>
+      <li>Contact & Support</li>
+    </ol>
+  </section>  <section>
+    <h2>1️⃣ Introduction</h2>
+    <p>Welcome to Kipu Fitness – your personal path to a better body and a stronger mind.</p>
+  </section>  <section>
+    <h2>2️⃣ Benefits of Fitness</h2>
+    <ul>
+      <li>✅ Boosts confidence</li>
+      <li>✅ Controls weight</li>
+      <li>✅ Improves strength & stamina</li>
+      <li>✅ Reduces stress</li>
+      <li>✅ Builds discipline</li>
+    </ul>
+  </section>  <section>
+    <h2>3️⃣ Weight Gain Plan</h2>
+    <h3>🧑‍🍳 Diet Tips:</h3>
+    <ul>
+      <li>High-protein meals</li>
+      <li>Eat every 2–3 hours</li>
+      <li>Add peanut butter, paneer, banana, milk</li>
+    </ul>
+    <h3>💪 Sample Day:</h3>
+    <p><strong>Breakfast:</strong> Oats + Banana + Peanut Butter</p>
+    <p><strong>Lunch:</strong> Rice + Dal + Paneer</p>
+    <p><strong>Snacks:</strong> Dry Fruits + Banana Shake</p>
+    <p><strong>Dinner:</strong> Roti + Veggies + Curd</p>
+  </section>  <section>
+    <h2>4️⃣ Weight Loss Plan</h2>
+    <h3>🥗 Diet Tips:</h3>
+    <ul>
+      <li>Avoid sugar & junk food</li>
+      <li>High-fiber veggies</li>
+      <li>Hydration is key</li>
+    </ul>
+    <h3>💪 Sample Day:</h3>
+    <p><strong>Breakfast:</strong> Sprouts + Boiled Egg</p>
+    <p><strong>Lunch:</strong> Brown Rice + Veggies</p>
+    <p><strong>Snacks:</strong> Green Tea + Fruits</p>
+    <p><strong>Dinner:</strong> Light Soup + Salad</p>
+  </section>  <section>
+    <h2>5️⃣ 🏠 HOME WORKOUT PLAN (No Equipment)</h2>
+    <ul>
+      <li>Day 1 – Jumping Jacks 3x30, Pushups 3x10</li>
+      <li>Day 2 – Squats 3x15, Plank 3x30 sec</li>
+      <li>Day 3 – Rest or Stretch</li>
+      <li>Day 4 – Mountain Climbers 3x20, Lunges 3x10 each</li>
+      <li>Day 5 – High Knees 3x30 sec, Sit-ups 3x15</li>
+      <li>Day 6 – Full Body Flow Yoga – 20 mins</li>
+      <li>Day 7 – Rest</li>
+    </ul>
+  </section>  <section>
+    <h2>6️⃣ 🏋️ GYM WORKOUT PLAN</h2>
+    <ul>
+      <li><strong>Day 1 (Chest):</strong> Bench Press, Incline DB Press, Push-ups</li>
+      <li><strong>Day 2 (Back):</strong> Lat Pulldown, Deadlifts, Seated Rows</li>
+      <li><strong>Day 3 (Shoulders):</strong> Overhead Press, Lateral Raise, Shrugs</li>
+      <li><strong>Day 4 (Legs):</strong> Squats, Leg Press, Calf Raises</li>
+      <li><strong>Day 5 (Arms):</strong> Bicep Curls, Tricep Pushdowns, Hammer Curls</li>
+      <li><strong>Day 6 (Core + Cardio):</strong> Plank, Leg Raises, Treadmill – 20 min</li>
+      <li><strong>Day 7:</strong> Rest</li>
+    </ul>
+  </section>  <section>
+    <h2>7️⃣ Diet Plans</h2>
+    <p>💡 Unlock exclusive weight gain & weight loss meal plans (PDF) after payment.</p>
+  </section>  <section>
+    <h2>8️⃣ Tips & Tricks</h2>
+    <ul>
+      <li>✅ Sleep 7–8 hrs daily</li>
+      <li>✅ Stay hydrated (3–4 L water)</li>
+      <li>✅ Be consistent – no magic pill!</li>
+      <li>✅ Track your progress weekly</li>
+    </ul>
+  </section>  <section>
+    <h2>9️⃣ Motivation Boost</h2>
+    <blockquote>
+      “Fitness is not about being better than someone else. It’s about being better than you used to be.” – Kipu 💪
+    </blockquote>
+  </section>  <section>
+    <h2>🔟 Contact & Support</h2>
+    <p>📧 Email: kripalsultania@gmail.com</p>
+    <p>📲 Instagram DM: <a href="https://instagram.com/kripalsultania" target="_blank">@kripalsultania</a></p>
+  </section>  <div class="insta">
+    <a href="https://instagram.com/kripalsultania" target="_blank">Follow on Instagram</a>
+  </div>  <audio class="voice" autoplay>
+    <source src="https://example.com/voice.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</body>
 </html>
