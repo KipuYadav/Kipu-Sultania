@@ -1,182 +1,148 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kipu Fitness Guide</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #232526, #414345);
-      color: #fff;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: white;
+      text-align: center;
+      padding: 30px;
       margin: 0;
-      padding: 0;
-      transition: background 0.5s, color 0.5s;
-    }.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
-}
+    }
 
-h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
 
-.input-box, .btn {
-  padding: 10px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-}
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
 
-.input-box {
-  width: 200px;
-}
+    .upi {
+      font-size: 18px;
+      margin: 10px 0;
+      background: #fff;
+      color: #000;
+      padding: 8px;
+      border-radius: 10px;
+      display: inline-block;
+    }
 
-.btn {
-  background: #00c6ff;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    button, input[type="password"] {
+      margin: 10px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+    }
 
-.btn:hover {
-  background: #0072ff;
-}
+    input[type="password"] {
+      width: 80%;
+    }
 
-.hidden {
-  display: none;
-}
+    .btn {
+      background: #00c9a7;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
+    .btn:hover {
+      background: #007b74;
+    }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+    #guideSection {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+    }
 
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 20px;
-  margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
+    .instagram {
+      margin-top: 20px;
+      display: inline-block;
+      background: #e1306c;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.dark-mode {
-  background: #111;
-  color: #eee;
-}
-
-.toggle-dark {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  background: #444;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.footer-btns {
-  margin-top: 30px;
-}
-
-a {
-  color: #0ff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .container { padding: 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="toggle-dark" onclick="toggleDark()">🌙 Toggle Dark</div>
   <div class="container">
-    <h1>Welcome to Kipu Fitness</h1>
-    <p>Enter Password to Unlock Fitness Guide</p>
-    <input type="password" id="password" class="input-box" placeholder="Enter Password"/>
-    <button onclick="checkPassword()" class="btn">Unlock</button>
-    <button onclick="showHint()" class="btn" style="background:#444;">🔍 Show Hint</button><div id="lockedContent" class="glass hidden">
-  <h2>🏋️ Home Workout Plan</h2>
-  <ul>
-    <li>Push-ups – 3 sets of 15</li>
-    <li>Squats – 3 sets of 20</li>
-    <li>Plank – 3 sets of 1 min</li>
-    <li>Jumping Jacks – 3 sets of 30 sec</li>
-  </ul>
+    <h1>💪 Kipu Fitness Guide</h1>
+    <p>Step 1: Pay ₹99 to access the guide</p>
+    <div class="upi">📲 UPI ID: <b>Q259634761@ybl</b></div><br>
+    <button class="btn" onclick="showPassword()">✅ I Have Paid</button>
 
-  <h2>🏋️‍♂️ Gym Workout Plan</h2>
-  <ul>
-    <li>Monday: Chest & Triceps</li>
-    <li>Tuesday: Back & Biceps</li>
-    <li>Wednesday: Legs</li>
-    <li>Thursday: Shoulders</li>
-    <li>Friday: Cardio + Abs</li>
-  </ul>
+    <div id="passwordDiv" style="display:none;">
+      <p>Step 2: Enter Password</p>
+      <input type="password" id="passwordInput" placeholder="Enter Password"/>
+      <button class="btn" onclick="checkPassword()">Unlock</button>
+    </div>
 
-  <h2>🍎 Weight Gain Diet Plan</h2>
-  <ul>
-    <li>Breakfast: Oats + Banana + Peanut Butter</li>
-    <li>Lunch: Rice + Paneer/Chicken + Salad</li>
-    <li>Snacks: Nuts + Milkshake</li>
-    <li>Dinner: Roti + Dal + Veggies</li>
-  </ul>
+    <div id="guideSection">
+      <h2>🏠 Home Workout Plan</h2>
+      <ul>
+        <li>Push-ups – 3 sets x 15 reps</li>
+        <li>Squats – 3 sets x 20 reps</li>
+        <li>Plank – 3 sets x 60 seconds</li>
+        <li>Jumping Jacks – 3 sets x 30 reps</li>
+      </ul>
 
-  <h2>🥗 Weight Loss Diet Plan</h2>
-  <ul>
-    <li>Breakfast: Green Tea + Oats</li>
-    <li>Lunch: Brown Rice + Veggies</li>
-    <li>Snacks: Fruits or Boiled Eggs</li>
-    <li>Dinner: Salad + Soup</li>
-  </ul>
+      <h2>🏋️‍♂️ Gym Workout Plan</h2>
+      <ul>
+        <li>Chest: Bench Press, Incline Press</li>
+        <li>Back: Deadlifts, Lat Pulldown</li>
+        <li>Shoulders: Overhead Press</li>
+        <li>Arms: Bicep Curls, Tricep Pushdown</li>
+        <li>Legs: Squats, Leg Press</li>
+      </ul>
 
-  <div class="footer-btns">
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn">💬 WhatsApp Support</a>
-    <a href="https://instagram.com/kripalsultania" class="btn">📸 Follow on Instagram</a>
+      <h2>🍎 Diet Plan</h2>
+      <ul>
+        <li>Morning: Oats + Banana + Almonds</li>
+        <li>Lunch: Brown rice + Paneer + Veggies</li>
+        <li>Evening: Peanut Butter Toast</li>
+        <li>Dinner: Salad + Soup or Eggs</li>
+      </ul>
+    </div>
+
+    <a class="instagram" href="https://instagram.com/kripalsultania" target="_blank">📷 Follow @kripalsultania</a>
   </div>
-</div>
 
-  </div>  <script>
-    let attempts = 0;
+  <script>
+    function showPassword() {
+      document.getElementById("passwordDiv").style.display = "block";
+    }
+
     function checkPassword() {
-      const pass = document.getElementById("password").value;
-      if (pass === "FITWITHKIPU") {
-        document.getElementById("lockedContent").classList.remove("hidden");
-        document.getElementById("lockedContent").classList.add("fade-in");
-        speak("Welcome to Kipu Fitness Guide!");
+      const password = document.getElementById("passwordInput").value;
+      if (password === "FITWITHKIPU") {
+        document.getElementById("guideSection").style.display = "block";
       } else {
-        attempts++;
-        alert("Incorrect Password ❌");
-        if (attempts >= 3) {
-          alert("Too many wrong attempts. Please refresh.");
-          document.getElementById("password").disabled = true;
-        }
+        alert("❌ Wrong password! Try again.");
       }
     }
-
-    function showHint() {
-      alert("Hint: FITWITHKIPU");
-    }
-
-    function toggleDark() {
-      document.body.classList.toggle("dark-mode");
-    }
-
-    function speak(text) {
-      const msg = new SpeechSynthesisUtterance(text);
-      window.speechSynthesis.speak(msg);
-    }
-  </script></body>
+  </script>
+</body>
 </html>
