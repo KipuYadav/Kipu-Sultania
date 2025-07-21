@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,61 +12,47 @@
       color: #fff;
       text-align: center;
     }
-
     .container {
-      max-width: 700px;
-      margin: 50px auto;
+      max-width: 900px;
+      margin: 40px auto;
       padding: 30px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       animation: fadeIn 1.5s ease;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    h1 {
-      font-size: 2.5rem;
+    h1, h2 {
       color: #00fff0;
-      margin-bottom: 10px;
     }
-
-    .upi {
-      font-size: 18px;
-      background: #fff;
-      color: #000;
+    .upi, .btn, input[type="password"] {
       padding: 10px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 10px 0;
-    }
-
-    button, input[type="password"] {
-      padding: 12px;
       margin: 10px;
-      border: none;
       border-radius: 10px;
       font-size: 16px;
     }
-
+    .upi {
+      background: #fff;
+      color: #000;
+      display: inline-block;
+    }
     .btn {
       background: #00c9a7;
       color: white;
+      border: none;
       cursor: pointer;
       transition: 0.3s;
     }
-
     .btn:hover {
       background: #007b74;
     }
-
     input[type="password"] {
+      border: none;
       width: 80%;
     }
-
     .instagram {
       background: #e1306c;
       padding: 10px 20px;
@@ -78,7 +63,6 @@
       display: inline-block;
       margin-top: 20px;
     }
-
     #lockSection, #guideSection {
       display: none;
       text-align: left;
@@ -87,17 +71,21 @@
       padding: 20px;
       border-radius: 15px;
     }
-
-    h2 {
-      color: #ffd700;
-      margin-top: 20px;
-    }
-
     ul {
-      list-style-type: square;
       padding-left: 20px;
+      list-style: square;
     }
-
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffd700;
+      margin-bottom: 20px;
+      animation: pop 1s ease-in-out;
+    }
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
     @media screen and (max-width: 600px) {
       h1 { font-size: 2rem; }
       .container { padding: 20px; }
@@ -105,60 +93,67 @@
   </style>
 </head>
 <body onload="playVoice()">
-
   <div class="container">
-    <h1>💪 Kipu Fitness Guide</h1>
+    <div class="logo">🏋️‍♂️ KIPU FITNESS</div>
+    <h1>🔥 Unlock Your Ultimate Body</h1>
     <p>Step 1: Pay ₹99 to unlock the guide</p>
     <div class="upi">📲 UPI ID: <b>Q259634761@ybl</b></div><br>
-    <button class="btn" onclick="showLock()">✅ I Have Paid</button>
+    <button class="btn" onclick="showLock()">✅ I Have Paid</button><div id="lockSection">
+  <p>Step 2: Enter Password</p>
+  <input type="password" id="passwordInput" placeholder="Enter Password"/>
+  <button class="btn" onclick="checkPassword()">Unlock</button>
+</div>
 
-    <div id="lockSection">
-      <p>Step 2: Enter Password</p>
-      <input type="password" id="passwordInput" placeholder="Enter Password"/>
-      <button class="btn" onclick="checkPassword()">Unlock</button>
-    </div>
+<div id="guideSection">
+  <h2>🏠 Home Workout (7 Days)</h2>
+  <ul>
+    <li><b>Day 1:</b> Jumping Jacks, Push-ups, Squats, Plank</li>
+    <li><b>Day 2:</b> Arm Circles, Wall Push-ups, Lunges, Crunches</li>
+    <li><b>Day 3:</b> High Knees, Tricep Dips, Glute Bridge, Side Plank</li>
+    <li><b>Day 4:</b> Stretch & Recovery</li>
+    <li><b>Day 5:</b> Full Body HIIT (20 mins)</li>
+    <li><b>Day 6:</b> Abs Focused: Leg Raises, Plank, Russian Twist</li>
+    <li><b>Day 7:</b> Rest</li>
+  </ul>
 
-    <div id="guideSection">
-      <h2>🏠 Home Workout Plan</h2>
-      <ul>
-        <li>Push-ups – 3 sets x 15 reps</li>
-        <li>Squats – 3 sets x 20 reps</li>
-        <li>Plank – 3 sets x 60 seconds</li>
-        <li>Jumping Jacks – 3 sets x 30 reps</li>
-      </ul>
+  <h2>🏋️ Gym Workout (Weekly Plan)</h2>
+  <ul>
+    <li><b>Monday:</b> Chest & Triceps (Bench Press, Incline DB Press, Dips)</li>
+    <li><b>Tuesday:</b> Back & Biceps (Deadlift, Lat Pulldown, Barbell Curl)</li>
+    <li><b>Wednesday:</b> Legs (Squats, Leg Press, Calf Raises)</li>
+    <li><b>Thursday:</b> Shoulders (Overhead Press, Lateral Raises)</li>
+    <li><b>Friday:</b> Arms (Bicep Curl, Tricep Rope Pushdown)</li>
+    <li><b>Saturday:</b> Core (Crunches, Leg Raise, Hanging Knee Raise)</li>
+    <li><b>Sunday:</b> Rest</li>
+  </ul>
 
-      <h2>🏋️ Gym Workout Plan</h2>
-      <ul>
-        <li>Monday: Chest + Triceps</li>
-        <li>Tuesday: Back + Biceps</li>
-        <li>Wednesday: Legs + Abs</li>
-        <li>Thursday: Shoulders + Traps</li>
-        <li>Friday: Full Body Circuit</li>
-      </ul>
+  <h2>🍎 Diet Plan – Weight Gain</h2>
+  <ul>
+    <li><b>Morning:</b> Banana shake + Peanut butter toast</li>
+    <li><b>Mid-Morning:</b> Boiled Eggs + Almonds</li>
+    <li><b>Lunch:</b> Rice + Paneer/Chicken + Dal + Veggies</li>
+    <li><b>Evening Snack:</b> Protein Bar or Milk + Nuts</li>
+    <li><b>Dinner:</b> Roti + Sabzi + Curd + Milk before bed</li>
+  </ul>
 
-      <h2>🍎 Diet Plan</h2>
-      <ul>
-        <li>Morning: Oats + Banana + Almonds</li>
-        <li>Lunch: Brown Rice + Paneer + Veggies</li>
-        <li>Evening Snack: Peanut Butter Toast</li>
-        <li>Dinner: Boiled Eggs + Soup or Light Veg Meal</li>
-      </ul>
-    </div>
+  <h2>🥗 Diet Plan – Weight Loss</h2>
+  <ul>
+    <li><b>Morning:</b> Green Tea + Boiled Egg</li>
+    <li><b>Mid-Morning:</b> Apple or Papaya</li>
+    <li><b>Lunch:</b> Brown Rice + Grilled Chicken/Veg + Salad</li>
+    <li><b>Evening Snack:</b> Roasted Makhana or Fruits</li>
+    <li><b>Dinner:</b> Veg Soup + Cucumber + Paneer/Besan Chilla</li>
+  </ul>
+</div>
 
-    <a class="instagram" href="https://instagram.com/kripalsultania" target="_blank">📷 Follow @kripalsultania</a>
-  </div>
+<a class="instagram" href="https://instagram.com/kripalsultania" target="_blank">📷 Follow @kripalsultania</a>
 
-  <!-- Voice Welcome Message -->
-  <audio id="voice" autoplay>
+  </div>  <audio id="voice" autoplay>
     <source src="https://github.com/KipuYadav/Kipu-Fitness/raw/main/kipu-voice.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
+  </audio>  <script>
     function showLock() {
       document.getElementById("lockSection").style.display = "block";
     }
-
     function checkPassword() {
       const pass = document.getElementById("passwordInput").value;
       if (pass === "FITWITHKIPU") {
@@ -167,10 +162,8 @@
         alert("❌ Wrong password! Try again.");
       }
     }
-
     function playVoice() {
       document.getElementById("voice").play();
     }
-  </script>
-</body>
+  </script></body>
 </html>
