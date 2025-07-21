@@ -1,210 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Kipu Fitness Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kipu Fitness Guide Access</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f2f2f2;
+      background: #f3f4f6;
+      padding: 20px;
       margin: 0;
-      padding: 0;
     }
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: auto;
-      background: #fff;
+      background: white;
       padding: 30px;
-      border-radius: 20px;
-      margin-top: 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-    h1, h2 {
+    h2, h3 {
       text-align: center;
-      color: #333;
+      color: #111827;
     }
-    .lock-section, .upload-section {
-      text-align: center;
-      margin: 20px 0;
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      color: #374151;
     }
-    input[type="password"], input[type="file"] {
+    input[type="text"], input[type="file"] {
+      width: 100%;
       padding: 10px;
-      font-size: 16px;
-      width: 80%;
-      margin: 10px 0;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
     }
     button {
-      padding: 12px 25px;
-      font-size: 16px;
-      background: #28a745;
-      color: white;
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #10b981;
       border: none;
-      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
-      margin: 10px;
     }
-    .guide-content {
+    button:hover {
+      background-color: #059669;
+    }
+    .hidden {
       display: none;
-      animation: fadeIn 1s ease-in-out;
     }
-    .insta-btn {
-      background: #e1306c;
+    .info {
+      margin-top: 20px;
+      text-align: center;
     }
-    .section {
-      margin: 30px 0;
+    .pdf-section, .whatsapp-section, .guide-section {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .guide-section {
+      display: none;
+      text-align: left;
+    }
+    .guide-section.visible {
+      display: block;
     }
     ul {
       line-height: 1.8;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      .container {
-        margin: 10px;
-        padding: 20px;
-      }
-    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h2>💪 KIPU FITNESS GUIDE ACCESS</h2>
+    <p style="text-align:center;">Pay ₹99 via UPI: <b>Q259634761@ybl</b></p><form action="https://formsubmit.co/kripalsultania@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
+  <label>Enter UPI Transaction ID:</label>
+  <input type="text" name="Transaction ID" required />
 
-<div class="container">
-  <h1>🏋️‍♂️ KIPU FITNESS GUIDE BOOK</h1>
-  <h3>By Kipu Yadav</h3>
+  <label>Upload Payment Screenshot:</label>
+  <input type="file" name="screenshot" accept="image/*" required />
 
-  <div class="lock-section">
-    <p>🔐 This guide is available only after payment of ₹99 to UPI: <b>Q259634761@ybl</b></p>
-    <p>📤 Upload your payment screenshot below & get password manually via Instagram/DM.</p>
+  <input type="hidden" name="_subject" value="New KIPU Payment Submission!">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="box">
 
-    <form action="https://formsubmit.co/kripalsultania@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="Kipu Fitness Payment Screenshot" />
-      <input type="hidden" name="_autoresponse" value="Thanks! You'll get password after manual verification." />
-      <input type="file" name="screenshot" accept="image/*" required />
-      <button type="submit">Upload Screenshot</button>
-    </form>
+  <button type="submit">Submit & Send Email</button>
+</form>
 
-    <p>⬇️ Already got the password? Enter to unlock:</p>
-    <input type="password" id="passwordInput" placeholder="Enter Password" />
-    <br />
-    <button onclick="unlockGuide()">Unlock Guide</button>
-    <p id="errorText" style="color: red;"></p>
-  </div>
-
-  <div id="guide" class="guide-content">
-    <div class="section">
-      <h2>📚 Table of Contents</h2>
-      <ul>
-        <li>1. Introduction</li>
-        <li>2. Benefits of Fitness</li>
-        <li>3. Weight Gain Plan</li>
-        <li>4. Weight Loss Plan</li>
-        <li>5. 🏠 Home Workouts</li>
-        <li>6. 🏋️ Gym Workouts</li>
-        <li>7. Nutrition & Diet Plans</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1. Introduction</h2>
-      <p>Welcome to KIPU FITNESS. This guide will help you transform your body with proper workouts and diet plans for both weight gain and weight loss.</p>
-    </div>
-
-    <div class="section">
-      <h2>2. Benefits of Fitness</h2>
-      <ul>
-        <li>Improves mental health</li>
-        <li>Builds physical strength</li>
-        <li>Boosts energy levels</li>
-        <li>Enhances confidence and mood</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>3. Weight Gain Plan (30 Days)</h2>
-      <ul>
-        <li>Eat calorie surplus meals (Banana shake, oats, peanut butter, paneer)</li>
-        <li>Workout 5x/week – focus on strength training</li>
-        <li>Sleep minimum 8 hours</li>
-        <li>Weekly progress tracking</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>4. Weight Loss Plan (30 Days)</h2>
-      <ul>
-        <li>Calorie deficit meals (boiled eggs, fruits, green tea)</li>
-        <li>Daily cardio + light strength training</li>
-        <li>Water intake: 3-4 litres</li>
-        <li>Track fat loss weekly</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>5. 🏠 Home Workouts</h2>
-      <ul>
-        <li>Day 1: Push-Ups - 3 sets x 15 reps</li>
-        <li>Day 2: Squats - 3 sets x 20 reps</li>
-        <li>Day 3: Planks - 3 sets x 45 sec</li>
-        <li>Day 4: Jumping Jacks - 3 sets x 50 reps</li>
-        <li>Day 5: Rest</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>6. 🏋️ Gym Workouts</h2>
-      <ul>
-        <li>Day 1: Chest + Triceps</li>
-        <li>Day 2: Back + Biceps</li>
-        <li>Day 3: Legs</li>
-        <li>Day 4: Shoulders</li>
-        <li>Day 5: Full body functional + Abs</li>
-        <li>Reps: 3 sets x 10-12 reps for each workout</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>7. Nutrition & Diet Plans</h2>
-      <h3>🔺 Weight Gain Diet</h3>
-      <ul>
-        <li>Morning: Oats + Banana Shake</li>
-        <li>Lunch: Rice, Dal, Paneer/Chicken</li>
-        <li>Evening Snack: Peanut butter bread</li>
-        <li>Dinner: Roti + Vegetables + Curd</li>
-      </ul>
-
-      <h3>🔻 Weight Loss Diet</h3>
-      <ul>
-        <li>Morning: Green Tea + 2 Boiled Eggs</li>
-        <li>Lunch: 1 Roti + Sabzi + Salad</li>
-        <li>Evening: Black coffee + Nuts</li>
-        <li>Dinner: Veg Soup or Low Carb Meal</li>
-      </ul>
-    </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="https://instagram.com/kripalsultania" target="_blank">
-      <button class="insta-btn">📸 Follow on Instagram</button>
-    </a>
+<div class="pdf-section">
+  <label>Enter Password (auto-changes every minute):</label>
+  <input type="text" id="passwordInput" placeholder="Enter Password" />
+  <button onclick="unlockPDF()">Unlock Guide</button>
+  <p id="errorText" class="error"></p>
+  <div id="pdfDownload" class="hidden">
+    <button style="background-color:#3b82f6" onclick="showGuide()">📖 View Fitness Guide</button>
   </div>
 </div>
 
-<script>
-  function unlockGuide() {
-    const pass = document.getElementById("passwordInput").value;
-    const guide = document.getElementById("guide");
-    const error = document.getElementById("errorText");
-    if (pass === "FITWITHKIPU") {
-      guide.style.display = "block";
-      error.textContent = "";
-    } else {
-      error.textContent = "❌ Wrong password. Please try again.";
-    }
-  }
-</script>
+<div class="guide-section" id="fitnessGuide">
+  <h3>🏋️‍♂️ KIPU FITNESS GUIDE BOOK</h3>
+  <p><strong>By Kipu Yadav</strong></p>
 
-</body>
+  <h4>📚 Table of Contents</h4>
+  <ul>
+    <li>1. Introduction</li>
+    <li>2. Benefits of Fitness</li>
+    <li>3. Weight Gain Plan</li>
+    <li>4. Weight Loss Plan</li>
+    <li>5. Home Workouts</li>
+    <li>6. Gym Workouts (Weekly Plan)</li>
+    <li>7. Diet Plans</li>
+  </ul>
+
+  <h4>1. Introduction</h4>
+  <p>Welcome to KIPU FITNESS! This guide is designed to help you gain or lose weight effectively using home workouts, gym routines, and optimized diet plans.</p>
+
+  <h4>2. Benefits of Fitness</h4>
+  <ul>
+    <li>Improves overall health</li>
+    <li>Increases energy and stamina</li>
+    <li>Boosts mental health</li>
+    <li>Improves self-confidence</li>
+  </ul>
+
+  <h4>3. Weight Gain Plan</h4>
+  <ul>
+    <li>Eat calorie surplus meals</li>
+    <li>Focus on protein-rich diet: paneer, eggs, chicken</li>
+    <li>Strength training 4–5 days/week</li>
+    <li>Drink whole milk, peanut butter, bananas</li>
+  </ul>
+
+  <h4>4. Weight Loss Plan</h4>
+  <ul>
+    <li>Follow calorie deficit diet</li>
+    <li>Do cardio 30–45 mins/day</li>
+    <li>Use low-carb, high-protein meals</li>
+    <li>Hydrate, sleep well</li>
+  </ul>
+
+  <h4>5. 🏠 Home Workouts</h4>
+  <ul>
+    <li>Push-ups – 3x15</li>
+    <li>Squats – 3x20</li>
+    <li>Plank – 3x1min</li>
+    <li>Lunges – 3x15</li>
+  </ul>
+
+  <h4>6. 🏋️ Gym Workouts</h4>
+  <p><strong>Day 1:</strong> Chest + Triceps<br>Bench Press, Dumbbell Flys, Dips<br>
+  <strong>Day 2:</strong> Back + Biceps<br>Pull-Ups, Rows, Barbell Curl<br>
+  <strong>Day 3:</strong> Shoulders<br>Military Press, Lateral Raises<br>
+  <strong>Day 4:</strong> Legs<br>Squats, Leg Press, Calf Raises<br>
+  <strong>Day 5:</strong> Core + Cardio<br>Planks, Russian Twists, Running</p>
+
+  <h4>7. 🥗 Diet Plans</h4>
+  <p><strong>For Weight Gain:</strong><br>Breakfast: Eggs + Banana Shake<br>Lunch: Rice + Chicken/Paneer<br>Dinner: Dal + Roti + Ghee</p>
+
+  <p><strong>For Weight Loss:</strong><br>Breakfast: Oats + Green Tea<br>Lunch: Salad + Grilled Paneer<br>Dinner: Soup + 1 Roti</p>
+</div>
+
+<div class="whatsapp-section">
+  <p><b>For more information:</b></p>
+  <a href="https://wa.me/917015735598" target="_blank">
+    <button style="background-color:#25D366">📞 Chat on WhatsApp</button>
+  </a>
+</div>
+
+  </div>  <script>
+    function generatePassword() {
+      const now = new Date();
+      const minutes = now.getUTCMinutes();
+      return 'KIPU' + (minutes < 10 ? '0' + minutes : minutes);
+    }
+
+    function unlockPDF() {
+      const input = document.getElementById("passwordInput").value.trim();
+      const correctPassword = generatePassword();
+      const guide = document.getElementById("pdfDownload");
+      const error = document.getElementById("errorText");
+
+      if (input === correctPassword) {
+        guide.classList.remove("hidden");
+        error.textContent = "";
+      } else {
+        error.textContent = "❌ Wrong password. Please try again.";
+        guide.classList.add("hidden");
+      }
+    }
+
+    function showGuide() {
+      document.getElementById("fitnessGuide").classList.add("visible");
+    }
+  </script></body>
 </html>
